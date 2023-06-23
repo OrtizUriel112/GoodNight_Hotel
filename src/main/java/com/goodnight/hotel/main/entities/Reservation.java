@@ -31,5 +31,12 @@ public class Reservation {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean check_out;
 
+    @ManyToOne()
+    @JoinColumn(name = "guest")
+    private Guest guest;
+
+    @ManyToOne
+    @JoinColumn(name = "room")
+    private Room room;
 
 }

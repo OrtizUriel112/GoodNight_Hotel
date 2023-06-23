@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -26,5 +27,17 @@ public class Room {
 
     @Column(name = "max_guest", nullable = false)
     private Integer max_guest;
+
+    @ManyToOne()
+    @JoinColumn(name = "room_type")
+    private RoomType roomType;
+
+    @ManyToOne()
+    @JoinColumn(name = "hotel")
+    private Hotel hotel;
+
+    @OneToMany
+    @JoinColumn(name = "id_room")
+    private Collection<Reservation> reservationCollection;
 
 }

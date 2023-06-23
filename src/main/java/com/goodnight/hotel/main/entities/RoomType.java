@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -17,4 +18,8 @@ public class RoomType {
 
     @Column(name = "name", length = 50, nullable = false)
     private String name;
+
+    @OneToMany()
+    @JoinColumn(name = "id_room_type")
+    private Collection<Room> roomCollection;
 }

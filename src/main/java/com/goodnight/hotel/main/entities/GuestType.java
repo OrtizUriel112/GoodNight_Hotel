@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -18,4 +19,8 @@ public class GuestType {
     @Column(name = "name", length = 50, nullable = false)
     private String name;
 
+    @OneToMany
+    @JoinColumn(name = "id_guest_type")
+    private Collection<Guest> guestCollection;
+    public GuestType(){}
 }
